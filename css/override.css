@@ -1,0 +1,74 @@
+/*******************
+ * This is the over-ride CSS file.
+ *
+ * if you know any CSS you can easily add custom rules to change how DynMap
+ * looks and behaves under your DynMap installation.
+ *
+ * 1. Uncomment the override.css in the index.html.
+ * 2. Rename this file or create a new override.css.
+ * 3. Add your own rules (or steal these) to personalize how DynMap looks.
+ *
+ * By adding your own rules here, you can then save your changes
+ * between DynMap updates and they won't get over-written.
+ */
+
+
+/* Use the alternate compass image */
+
+.compass {
+    top: 20px;
+    right: 20px;
+
+    height: 50px;
+    width: 50px;
+
+    background-image: url(../images/compass_alt.png);
+}
+
+/* These next two keep the DynMap sidebar open... */
+
+.dynmap .sidebar {
+	margin-right: 0px;
+}
+
+/* ...and hide the hitbar along with the sidebar controls */
+
+.dynmap .sidebar .hitbar,
+.dynmap .sidebar .panel > .pin {
+	display: none;
+}
+
+/* Hide the default link button in the bottom-left */
+.leaflet-control-link {
+    display: none !important;
+}
+
+/* Align items in the bottom-left control container */
+.leaflet-control-container .leaflet-bottom.leaflet-left {
+    display: flex;
+    flex-direction: column-reverse; /* Stack items vertically, chatbox typically added last, so reverse puts it at bottom */
+    align-items: flex-start; /* Align items to the left */
+    padding-bottom: 5px; /* Add some padding at the very bottom */
+}
+
+/* Style the coordinate display (remove default padding/background if needed) */
+.leaflet-control-coord {
+    background-color: rgba(255, 255, 255, 0.7); /* Match default Leaflet control background */
+    padding: 2px 5px; /* Reduce padding slightly */
+    margin-bottom: 5px; /* Space below coords */
+    border-radius: 4px;
+    color: #333; /* Darker text for readability on light background */
+    text-shadow: none; /* Remove text shadow if it exists */
+    font-size: 11px; /* Slightly smaller font */
+    box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+}
+
+/* Remove margin from the last control (likely chatbox) */
+.leaflet-control-container .leaflet-bottom.leaflet-left .leaflet-control:last-child {
+    margin-bottom: 0;
+}
+
+/* Ensure chatbox itself doesn't have excessive margins if it's a direct child */
+.leaflet-control-container .leaflet-bottom.leaflet-left > .chatbox {
+     margin-bottom: 0;
+}
